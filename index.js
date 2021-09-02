@@ -5,9 +5,12 @@ app.use(cors())
 const port = 3000
 const https = require('https')
 const bodyParser = require('body-parser')
-app.set('views engine','ejs')
+// app.set('views engine','ejs')
 app.use(bodyParser.urlencoded({extended:true}))
 
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname +'/index.html')
+})
 
 app.post("/",(req,res)=>{
     const apiKey = "fdaef8719323472b8bf38c0273e1531e"
@@ -29,6 +32,6 @@ app.post("/",(req,res)=>{
 
 })
 
-app.listen({port}, () => {
+app.listen(3000, () => {
     console.log(`server listening on ${port}`)
 })
